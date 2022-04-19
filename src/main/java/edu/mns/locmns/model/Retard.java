@@ -1,9 +1,18 @@
 package edu.mns.locmns.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Retard {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Date dateAlerteRetard;
 
     public Integer getId() {

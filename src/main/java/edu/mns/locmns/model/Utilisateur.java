@@ -1,10 +1,20 @@
 package edu.mns.locmns.model;
 
 import edu.mns.locmns.model.Personne;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+
+@Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Utilisateur extends Personne {
-    String numeroTelephone;
-    String adresse;
+    private String numeroTelephone;
+    private String adresse;
+
+    public Utilisateur() {
+
+    }
 
     public Utilisateur(Integer id, String nom, String prenom, String mail, String numeroTelephone, String adresse) {
         super(id, nom, prenom, mail);

@@ -2,14 +2,16 @@ package edu.mns.locmns.model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Id;
+
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class CadreUtilisation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCadre;
 
     private String typeEvenement;

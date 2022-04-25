@@ -1,10 +1,9 @@
 package edu.mns.locmns.model;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 public class CadreUtilisation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCadre;
 
     private String typeEvenement;

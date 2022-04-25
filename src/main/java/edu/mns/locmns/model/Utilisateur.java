@@ -21,10 +21,10 @@ public class Utilisateur extends Personne {
     @ManyToOne
     private Statut statut;
 
-    @OneToMany(mappedBy = "Utilisateur")
+    @OneToMany(mappedBy = "utilisateur")
     private List<Retard> listeRetards = new ArrayList<>();
 
-    @OneToMany(mappedBy = "Utilisateur")
+    @OneToMany(mappedBy = "utilisateur")
     private List<Dysfonctionnement> listeDysfonctionnements = new ArrayList<>();
 
     public Utilisateur() {

@@ -16,14 +16,18 @@ public class Gestionnaire extends Personne{
     @ManyToOne
     private Personne personne;
 
-    @OneToMany(mappedBy = "Gestionnaire")
+    @OneToMany(mappedBy = "gestionnaire")
     private List<Retard> listeRetards = new ArrayList<>();
 
-    @OneToMany(mappedBy = "Gestionnaire")
+    @OneToMany(mappedBy = "gestionnaire")
     private List<Dysfonctionnement> listeDysfonctionnements = new ArrayList<>();
 
-    @OneToMany(mappedBy = "Gestionnaire")
-    private List<Emprunt> listeEmprunts = new ArrayList<>();
+    @OneToMany(mappedBy = "validationEntree")
+    private List<Emprunt> listeEmpruntsEntrée = new ArrayList<>();
+
+    @OneToMany(mappedBy = "validationRetour")
+    private List<Emprunt> listeEmpruntsRetour = new ArrayList<>();
+
 
     public Gestionnaire() {
 

@@ -21,6 +21,8 @@ public class Retard {
     @ManyToOne
     private Utilisateur utilisateur;
 
+    //Faut il mettre many to one inversé
+
     public Integer getId() {
         return id;
     }

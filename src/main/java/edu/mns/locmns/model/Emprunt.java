@@ -30,6 +30,12 @@ public class Emprunt {
     @ManyToMany
     private List<LieuUtilisation> listeLieuxUtilisation = new ArrayList<>();
 
+    @ManyToOne
+    private Emprunt validationEntree;
+
+    @ManyToOne
+    private Emprunt validationRetour;
+
     public Integer getIdEmprunt() {
         return idEmprunt;
     }

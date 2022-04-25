@@ -15,6 +15,12 @@ public class Retard {
 
     private Date dateAlerteRetard;
 
+    @ManyToOne
+    private Gestionnaire gestionnaire;
+
+    @ManyToOne
+    private Utilisateur utilisateur;
+
     public Integer getId() {
         return id;
     }

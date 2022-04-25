@@ -1,10 +1,19 @@
 package edu.mns.locmns.model;
 
-import java.time.LocalDate;
-import java.util.Date;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Emprunt {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmprunt;
 
     private Date dateDemande;
@@ -14,6 +23,12 @@ public class Emprunt {
     private Date dateRetour;
 
     private Date dateValidation;
+
+    @ManyToMany
+    private List<CadreUtilisation> listeCadrexUtilisation = new ArrayList<>();
+
+    @ManyToMany
+    private List<LieuUtilisation> listeLieuxUtilisation = new ArrayList<>();
 
     public Integer getIdEmprunt() {
         return idEmprunt;

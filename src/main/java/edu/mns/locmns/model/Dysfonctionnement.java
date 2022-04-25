@@ -1,12 +1,29 @@
 package edu.mns.locmns.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Dysfonctionnement {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private Date dateDysfonctionnement;
+
     private String descriptif;
+
     private Date datePriseEnCharge;
+
+    @ManyToOne
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    private Gestionnaire gestionnaire;
 
     public Integer getId() {
         return id;

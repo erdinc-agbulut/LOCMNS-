@@ -3,9 +3,12 @@ package edu.mns.locmns.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Personne {
 
     @Id
@@ -19,7 +22,6 @@ public class Personne {
     protected String mail;
 
     protected String motDePasse;
-
 
     public Personne(Integer id, String nom, String prenom, String mail) {
         this.id = id;

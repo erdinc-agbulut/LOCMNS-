@@ -5,12 +5,27 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Utilisateur extends Personne {
+
     private String numeroTelephone;
+
     private String adresse;
+
+    @ManyToOne
+    private Statut statut;
+
+    @OneToMany(mappedBy = "Utilisateur")
+    private List<Retard> listeRetards = new ArrayList<>();
+
+    @OneToMany(mappedBy = "Utilisateur")
+    private List<Dysfonctionnement> listeDysfonctionnements = new ArrayList<>();
 
     public Utilisateur() {
 

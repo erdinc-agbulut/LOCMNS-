@@ -25,7 +25,7 @@ public class Emprunt {
     private Date dateValidation;
 
     @ManyToMany
-    private List<CadreUtilisation> listeCadrexUtilisation = new ArrayList<>();
+    private List<CadreUtilisation> listeCadresUtilisation = new ArrayList<>();
 
     @ManyToMany
     private List<LieuUtilisation> listeLieuxUtilisation = new ArrayList<>();
@@ -35,6 +35,7 @@ public class Emprunt {
 
     @ManyToOne
     private Emprunt validationRetour;
+
 
     public Integer getIdEmprunt() {
         return idEmprunt;

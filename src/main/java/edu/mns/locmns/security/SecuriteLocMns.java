@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecuriteLocMns extends WebSecurityConfigurerAdapter {
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected  void configure(AuthenticationManagerBuilder auth) throws Exception{
 
     }
 }

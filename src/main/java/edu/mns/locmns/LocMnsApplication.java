@@ -9,7 +9,6 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableJpaAuditing
-
 public class LocMnsApplication {
 
     @PostConstruct

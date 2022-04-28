@@ -1,7 +1,6 @@
 package edu.mns.locmns.security;
 
 import edu.mns.locmns.dao.GestionnaireDao;
-import edu.mns.locmns.dao.PersonneDao;
 import edu.mns.locmns.model.Gestionnaire;
 import edu.mns.locmns.model.Personne;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,27 +14,30 @@ import java.util.Optional;
 public class PersonneDetailsLocMns implements UserDetails {
 
     private Personne personne;
+    private Boolean isGestionnaire;
 
-    private PersonneDao personneDao;
 
-    private GestionnaireDao gestionnaireDao;
-
-    public PersonneDetailsLocMns(Personne personne) {
+    public PersonneDetailsLocMns(Personne personne, Boolean isGestionnaire) {
         this.personne = personne;
+        this.isGestionnaire = isGestionnaire;
     }
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        //----GESTION DES DROITS PAR HERITAGE----
+
         ArrayList<SimpleGrantedAuthority> listeAuthority = new ArrayList<>();
-        //personne = gestionnaireDao.findByMailWithRoles();
-        Optional<Gestionnaire> gestionnaire = gestionnaireDao.findById(personne.getId());
 
 
-        if(gestionnaire.isPresent()){
+
+        if(isGestionnaire) {
             listeAuthority.add(new SimpleGrantedAuthority("ROLE_GESTIONNAIRE"));
         }else{
             listeAuthority.add(new SimpleGrantedAuthority("ROLE_UTILISATEUR"));
         }
+
         return listeAuthority;
     }
 

@@ -10,10 +10,8 @@ import java.util.Optional;
 @Repository
 public interface UtilisateurDao extends JpaRepository<Utilisateur, Integer> {
 
-<<<<<<< HEAD
-=======
-    Optional<Utilisateur> findByMail(String mail);
->>>>>>> origin/erdinc
+    //Optional<Utilisateur> findByMail(String mail);
+
 
 
 }

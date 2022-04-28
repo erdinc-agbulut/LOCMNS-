@@ -11,10 +11,9 @@ import java.util.Optional;
 
 @Repository
 public interface PersonneDao extends JpaRepository<Personne, Integer> {
-
     Optional<Personne> findByMail(String mail);
-
-    @Query("FROM Personne p JOIN FETCH p.listeRoles WHERE p.mail = :mail")
-    Optional<Personne> findByMailWithRoles(@Param("mail") String mail);
+    Optional<Personne> findById(Personne personne);
+//    @Query("FROM Personne p JOIN FETCH p.listeRoles WHERE p.mail = :mail")
+//    Optional<Personne> findByMailWithRoles(@Param("mail") String mail);
 
 }

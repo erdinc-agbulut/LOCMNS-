@@ -20,10 +20,16 @@ public class Dysfonctionnement {
     private Date datePriseEnCharge;
 
     @ManyToOne
+    @JoinColumn(name="id_utilisateur")
     private Utilisateur utilisateur;
 
     @ManyToOne
+    @JoinColumn(name="id_gestionnaire")
     private Gestionnaire gestionnaire;
+
+    @ManyToOne
+    @JoinColumn(name="id_materiel")
+    private Materiel materiel;
 
     public Integer getId() {
         return id;

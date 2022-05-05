@@ -24,17 +24,45 @@ public class Emprunt {
 
     private Date dateValidation;
 
+    private Date dateProlongation;
+
     @ManyToMany
+    @JoinTable(
+            name="contient",
+            joinColumns = @JoinColumn(name="id_emprunt"),
+            inverseJoinColumns = @JoinColumn(name="id_cadre")
+
+    )
     private List<CadreUtilisation> listeCadresUtilisation = new ArrayList<>();
 
     @ManyToMany
+    @JoinTable(
+            name="affecter",
+            joinColumns = @JoinColumn(name="id_emprunt"),
+            inverseJoinColumns = @JoinColumn(name="id_lieu")
+
+    )
     private List<LieuUtilisation> listeLieuxUtilisation = new ArrayList<>();
 
     @ManyToOne
-    private Emprunt validationEntree;
+    @JoinColumn(name="id_gestionnaire_entree")
+    private Gestionnaire validationEntree;
 
     @ManyToOne
-    private Emprunt validationRetour;
+    @JoinColumn(name="id_gestionnaire_retour")
+    private Gestionnaire validationRetour;
+
+    @ManyToOne
+    @JoinColumn(name="id_gestionnaire_prolongation")
+    private Gestionnaire validationProlongation;
+
+    @ManyToOne
+    @JoinColumn(name="id_materiel")
+    private Materiel materiel;
+
+    @ManyToOne
+    @JoinColumn(name="id_utilisateur")
+    private Utilisateur utilisateur;
 
 
     public Integer getIdEmprunt() {

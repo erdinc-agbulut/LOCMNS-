@@ -31,6 +31,6 @@ public class Statut {
         this.role = role;
     }
 
-    @OneToMany(mappedBy = "Statut")
+    @OneToMany(mappedBy = "statut")
     private List<Utilisateur> listeUtilisateurs = new ArrayList<>();
 }

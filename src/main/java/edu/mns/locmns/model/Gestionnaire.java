@@ -2,10 +2,7 @@ package edu.mns.locmns.model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +11,7 @@ import java.util.List;
 public class Gestionnaire extends Personne{
 
     @ManyToOne
+    @JoinColumn(name="id_personne")
     private Personne personne;
 
     @OneToMany(mappedBy = "gestionnaire")
@@ -27,6 +25,9 @@ public class Gestionnaire extends Personne{
 
     @OneToMany(mappedBy = "validationRetour")
     private List<Emprunt> listeEmpruntsRetour = new ArrayList<>();
+
+    @OneToMany(mappedBy = "validationProlongation")
+    private List<Emprunt> listeEmpruntsProlongation = new ArrayList<>();
 
 
     public Gestionnaire() {

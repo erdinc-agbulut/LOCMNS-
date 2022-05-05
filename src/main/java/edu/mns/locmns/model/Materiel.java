@@ -18,22 +18,31 @@ public class Materiel {
     private String numeroSerie;
 
     @ManyToOne
+    @JoinColumn(name="id_lieu_stockage")
     private LieuStockage lieuStockage;
 
     @ManyToOne
+    @JoinColumn(name="id_modele")
     private Modele modele;
 
     @ManyToOne
+    @JoinColumn(name="id_etat")
     private Etat etat;
 
     @ManyToMany
+    @JoinTable(
+            name="fournit",
+            joinColumns = @JoinColumn(name="id_materiel"),
+            inverseJoinColumns = @JoinColumn(name="id_document")
+
+    )
     private List<Document> listdocument = new ArrayList<>();
 
     @OneToMany(mappedBy = "materiel")
-    private Emprunt emprunt;
+    private List<Emprunt> emprunt = new ArrayList<>();
 
     @OneToMany(mappedBy = "materiel")
-    private Dysfonctionnement dysfonctionnement;
+    private List<Dysfonctionnement> dysfonctionnement = new ArrayList<>();
 
 
 

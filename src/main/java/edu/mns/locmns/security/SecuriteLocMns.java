@@ -17,7 +17,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import javax.sql.DataSource;
 
 @EnableWebSecurity
-public class SecuriteLocMns extends WebSecurityConfigurerAdapter {
+public class SecuriteLocMns extends WebSecurityConfigurerAdapter { //Configuration
 
     @Autowired
     private DataSource dataSource;

@@ -12,9 +12,12 @@ public class Marque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMarque;
 
-    @ManyToOne
-    @MapsId("idMarque")
     private String nomMarque;
+
+    @ManyToOne
+    @JoinColumn(name="id_model")
+    //@MapsId("idMarque") A quoi ça sert ?
+    private Modele model;
 
     public Integer getIdMarque() {
         return idMarque;

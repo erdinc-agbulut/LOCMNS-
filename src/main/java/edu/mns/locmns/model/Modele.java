@@ -18,16 +18,23 @@ public class Modele {
     private String nomModele;
 
     @ManyToMany
+    @JoinTable(
+            name="detailler",
+            joinColumns = @JoinColumn(name="id_modele"),
+            inverseJoinColumns = @JoinColumn(name="id_caracteristique")
+    )
     private List<Caracteristique> listcaracteristique = new ArrayList<>();
 
     @ManyToOne
+    @JoinColumn(name="id_marque")
     private Marque marque;
 
     @ManyToOne
+    @JoinColumn(name="id_type")
     private TypeMateriel typeMateriel;
 
     @OneToMany(mappedBy = "modele")
-    private Materiel materiel;
+    private List<Materiel> materiel = new ArrayList<>();
 
     public Integer getIdModele() {
         return idModele;

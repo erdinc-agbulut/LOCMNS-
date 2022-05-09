@@ -193,7 +193,7 @@ VALUES
     ('2022-04-27', "Le projecteur n'affiche plus correctement le contenu", 3, 9, '2022-04-28', 1),
     ('2022-04-27', "Le bouton allumer de mon ordinateur ne répond plus", 4, 5, '2022-04-28', 3);
 
-INSERT INTO infoReparation(date_prevue_reparation, chemin_document, id_materiel)
+INSERT INTO info_reparation(date_prevue_reparation, chemin_document, id_materiel)
 VALUES
     ('2008-08-11',"/documents/images",1),
     ("2023-03-06","/documents/images",5),

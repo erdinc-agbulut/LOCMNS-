@@ -33,7 +33,7 @@ public class Materiel {
     @JoinTable(
             name="fournit",
             joinColumns = @JoinColumn(name="id_materiel"),
-            inverseJoinColumns = @JoinColumn(name="id_listdocument")
+            inverseJoinColumns = @JoinColumn(name="id_document")
 
     )
     private List<Document> listdocument = new ArrayList<>();

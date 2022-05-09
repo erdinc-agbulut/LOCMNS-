@@ -3,6 +3,8 @@ package edu.mns.locmns.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -14,10 +16,8 @@ public class Marque {
 
     private String nomMarque;
 
-    @ManyToOne
-    @JoinColumn(name="id_model")
-    //@MapsId("idMarque") A quoi ça sert ?
-    private Modele model;
+    @OneToMany
+    private List<Modele> listeModels = new ArrayList<>();
 
     public Integer getIdMarque() {
         return idMarque;

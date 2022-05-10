@@ -43,7 +43,7 @@ public class SecuriteLocMns extends WebSecurityConfigurerAdapter {
                 .and()
                     .csrf().disable()
                     .authorizeRequests()
-                    .antMatchers("/connexion").permitAll()
+                    .antMatchers("/connexion","/").permitAll()
                     .antMatchers("/gestionnaire/**").hasRole("GESTIONNAIRE")
                     .antMatchers("/**").hasAnyRole("GESTIONNAIRE","UTILISATEUR")
                 .and()

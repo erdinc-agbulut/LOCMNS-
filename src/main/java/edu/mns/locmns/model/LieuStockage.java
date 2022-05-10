@@ -21,4 +21,6 @@ public class LieuStockage {
 
     @OneToMany(mappedBy = "lieuStockage")
     private List<Materiel> listemateriel = new ArrayList<>();
+
+    //test github
 }

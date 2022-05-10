@@ -33,22 +33,23 @@ public class SecuriteLocMns extends WebSecurityConfigurerAdapter { //Configurati
 
     @Override //Configurer l'authentification
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(personneDetailsServiceLocMns);
+        auth.userDetailsService(personneDetailsServiceLocMns).passwordEncoder(getPasswordEncoder());
     }
 
     @Override //Gérer l'authorisation
     protected void configure(HttpSecurity http) throws Exception{
+        //cors -> autorise toutes les requêtes qui viennent de l'extérieur (par défaut donc autorise toutes les requêtes et entêtes
         http.cors().configurationSource((request -> new CorsConfiguration().applyPermitDefaultValues()))
                 .and()
-                    .csrf().disable()
-                    .authorizeRequests()
-                    .antMatchers("/connexion").permitAll()
+                    .csrf().disable() //On n'a pas de token formulaire (check pas le token lors réception requête)
+                    .authorizeRequests()// Verifie le droit sur le lien cliqué
+                    .antMatchers("/connexion" , "/").permitAll()
                     .antMatchers("/gestionnaire/**").hasRole("GESTIONNAIRE")
                     .antMatchers("/**").hasAnyRole("UTILISATEUR", "GESTIONNAIRE")
-                .and()
-                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .and().exceptionHandling()
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class); //Filtre vérifie que le token est correct
 
     }
 

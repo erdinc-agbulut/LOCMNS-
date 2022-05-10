@@ -19,6 +19,7 @@ public interface GestionnaireDao extends JpaRepository<Gestionnaire, Integer> {
 
     //Optional<Personne> personne =
 //    Optional<Personne> findByMail(String mail);
+/*    @Query("FROM ")*/
 
 
 

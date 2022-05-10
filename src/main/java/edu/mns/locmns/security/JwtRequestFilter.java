@@ -28,7 +28,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader("Authorization"); //Recoit l'authorisation où il y a notre token
 
-        if(token != null && token.startsWith("Bearer")){
+        if(token != null && token.startsWith("Bearer ")){
             String jwt = token.substring(7); //Enleve les 7 caractères (Bearer + espace)
             String nom = jwtUtils.getTokenBody(jwt).getSubject();
             UserDetails userDetails = this.personneDetailsServiceLocMns.loadUserByUsername(nom);

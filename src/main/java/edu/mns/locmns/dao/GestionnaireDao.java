@@ -16,16 +16,8 @@ public interface GestionnaireDao extends JpaRepository<Gestionnaire, Integer> {
     //Optional<Personne> findById(Personne personne);
     Optional<Personne> findByMail(String mail);
 
-    @Query("FROM Personne p JOIN FETCH p.id WHERE p.mail = :mail")
-    Optional<Personne> findByMailWithRoles(@Param("mail") String mail);
-
-
-    //Optional<Personne> personne =
-//    Optional<Personne> findByMail(String mail);
-//
-
-
-
+    //@Query("FROM Personne p JOIN FETCH p.id WHERE p.mail = :mail")
+    //Optional<Personne> findByMailWithRoles(@Param("mail") String mail);
 }
 
 

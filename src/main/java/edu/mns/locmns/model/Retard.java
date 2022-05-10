@@ -16,9 +16,11 @@ public class Retard {
     private Date dateAlerteRetard;
 
     @ManyToOne
+    @JoinColumn(name="id_personne_gestionnaire")
     private Gestionnaire gestionnaire;
 
     @ManyToOne
+    @JoinColumn(name="id_personne_utilisateur")
     private Utilisateur utilisateur;
 
     //Faut il mettre many to one inversé

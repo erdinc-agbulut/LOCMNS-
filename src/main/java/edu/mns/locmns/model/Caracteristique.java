@@ -12,6 +12,5 @@ public class Caracteristique {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCaracteristique;
 
-    @ManyToMany
     private String nomCaracteristique;
 }

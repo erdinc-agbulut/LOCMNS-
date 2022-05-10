@@ -3,6 +3,8 @@ package edu.mns.locmns.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -12,9 +14,10 @@ public class Marque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMarque;
 
-    @ManyToOne
-    @MapsId("idMarque")
     private String nomMarque;
+
+    @OneToMany
+    private List<Modele> listeModeles = new ArrayList<>();
 
     public Integer getIdMarque() {
         return idMarque;

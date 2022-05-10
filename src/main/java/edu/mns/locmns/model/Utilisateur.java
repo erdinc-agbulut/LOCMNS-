@@ -3,10 +3,7 @@ package edu.mns.locmns.model;
 import edu.mns.locmns.model.Personne;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +16,7 @@ public class Utilisateur extends Personne {
     private String adresse;
 
     @ManyToOne
+    @JoinColumn(name="id_statut")
     private Statut statut;
 
     @OneToMany(mappedBy = "utilisateur")
@@ -26,6 +24,9 @@ public class Utilisateur extends Personne {
 
     @OneToMany(mappedBy = "utilisateur")
     private List<Dysfonctionnement> listeDysfonctionnements = new ArrayList<>();
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Emprunt> listeEmprunt = new ArrayList<>();
 
     public Utilisateur() {
 

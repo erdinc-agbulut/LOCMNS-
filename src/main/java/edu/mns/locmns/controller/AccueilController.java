@@ -23,7 +23,7 @@ public class AccueilController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @GetMapping("/")
+    @GetMapping("/connexion")
     public String accueil(){
         return "Bienvenue";
     }
@@ -41,15 +41,20 @@ public class AccueilController {
         return jwtUtils.generateToken(userDetails);
     }
 
-    @GetMapping("/connexion")
-    public String connexion(){
-        return "Tu es connecté";
-    }
+//    @GetMapping("/connexion")
+//    public String connexion(){
+//        return "Tu es connecté";
+//    }
 
-    @GetMapping("gestionnaire/a")
-    public String con(){
-        return "Tu es gestionnaire";
-    }
+//    @GetMapping("gestionnaire/a")
+//    public String con(){
+//        return "Tu es gestionnaire";
+//    }
+
+//    @GetMapping("/utilisateur")
+//    public String connexion2(){
+//        return "tu es bien utilisateur";
+//    }
 
 
 }

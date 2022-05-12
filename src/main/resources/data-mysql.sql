@@ -19,7 +19,8 @@ VALUES
     ("Bray","Curran","velit.quisque@icloud.net","SXL12PQH1XR"),
     ("Clayton","Valentine","non.hendrerit.id@yahoo.couk","EAA57JCQ1DE"),
     ("Beach","Amaya","at.sem.molestie@hotmail.net","VGX97VON5MM"),
-    ("Porter","Victor","cras.convallis@icloud.edu","QYM49WMG7AE");
+    ("Porter","Victor","cras.convallis@icloud.edu","QYM49WMG7AE"),
+    ("COLNAT", "Corentin", "coco@gmail.com", "$2a$10$EkZchpqV0/AjwAk42/W6veS2oqzUHvz5K8PrsR9ynZRzLFLMdw03S");
 
 INSERT INTO lieu_stockage (nom_lieu_stockage)
 VALUES
@@ -144,7 +145,8 @@ VALUES
     (17,"03 55 91 38 64","velit@protonmail.net",2), -- Intervenants
     (18,"04 51 18 59 67","accumsan.laoreet.ipsum@yahoo.org",2),
     (19,"02 29 65 57 86","in@hotmail.net",2),
-    (20,"03 32 73 96 91","aliquet@protonmail.ca",2);
+    (20,"03 32 73 96 91","aliquet@protonmail.ca",2),
+    (21, "06 21 20 13 02","Metz",1 );
 
 INSERT INTO gestionnaire (id)
 VALUES

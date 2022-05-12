@@ -33,12 +33,9 @@ public class UtilisateurController {
     }
 
     @PostMapping("/inscription")
-    public String inscription(@RequestBody Personne personne) throws Exception{
-        personne.setMotDePasse(encoder.encode(personne.getMotDePasse()));
-        personne.setNom("COLNAT");
-        personne.setPrenom("Corentin");
-        personne.setMail("coco@gmail.com");
-
+    public String inscription(@RequestBody Utilisateur utilisateur) throws Exception{
+        utilisateur.setMotDePasse(encoder.encode(utilisateur.getMotDePasse()));
+        utilisateurDao.save(utilisateur);
         return "utlisateur crée";
     }
 }

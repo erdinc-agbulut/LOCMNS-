@@ -14,47 +14,4 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AccueilController {
 
-    @Autowired
-    AuthenticationManager authenticationManager;
-
-    @Autowired
-    PersonneDetailsServiceLocMns personneDetailsServiceLocMns;
-
-    @Autowired
-    JwtUtils jwtUtils;
-
-    @GetMapping("/connexion")
-    public String accueil(){
-        return "Bienvenue";
-    }
-
-    @PostMapping("/connexion")
-    public String connexion(@RequestBody Personne personne) throws Exception{
-
-        try{
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(personne.getMail(), personne.getMotDePasse()));
-        }catch (BadCredentialsException e){
-            throw new Exception(e);
-        }
-
-        UserDetails userDetails = personneDetailsServiceLocMns.loadUserByUsername(personne.getMail());
-        return jwtUtils.generateToken(userDetails);
-    }
-
-//    @GetMapping("/connexion")
-//    public String connexion(){
-//        return "Tu es connecté";
-//    }
-
-//    @GetMapping("gestionnaire/a")
-//    public String con(){
-//        return "Tu es gestionnaire";
-//    }
-
-//    @GetMapping("/utilisateur")
-//    public String connexion2(){
-//        return "tu es bien utilisateur";
-//    }
-
-
 }

@@ -32,10 +32,17 @@ public class UtilisateurController {
         return this.utilisateurDao.findById(id).orElse(null);
     }
 
-    @PostMapping("/inscription")
+    @PostMapping("gestionnaire/inscription")
     public String inscription(@RequestBody Utilisateur utilisateur) throws Exception{
         utilisateur.setMotDePasse(encoder.encode(utilisateur.getMotDePasse()));
         utilisateurDao.save(utilisateur);
         return "utlisateur crée";
     }
+
+/*    @GetMapping("/cryptage")
+    public String chiffrer(){
+        return encoder.encode("TVJ72HAS5BK");
+    }*/
+
+
 }

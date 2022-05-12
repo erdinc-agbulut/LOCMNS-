@@ -17,6 +17,70 @@ public class Materiel {
 
     private String numeroSerie;
 
+    public Integer getIdMateriel() {
+        return idMateriel;
+    }
+
+    public void setIdMateriel(Integer idMateriel) {
+        this.idMateriel = idMateriel;
+    }
+
+    public String getNumeroSerie() {
+        return numeroSerie;
+    }
+
+    public void setNumeroSerie(String numeroSerie) {
+        this.numeroSerie = numeroSerie;
+    }
+
+    public LieuStockage getLieuStockage() {
+        return lieuStockage;
+    }
+
+    public void setLieuStockage(LieuStockage lieuStockage) {
+        this.lieuStockage = lieuStockage;
+    }
+
+    public Modele getModele() {
+        return modele;
+    }
+
+    public void setModele(Modele modele) {
+        this.modele = modele;
+    }
+
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
+
+    public List<Document> getListdocument() {
+        return listdocument;
+    }
+
+    public void setListdocument(List<Document> listdocument) {
+        this.listdocument = listdocument;
+    }
+
+    public List<Emprunt> getEmprunt() {
+        return emprunt;
+    }
+
+    public void setEmprunt(List<Emprunt> emprunt) {
+        this.emprunt = emprunt;
+    }
+
+    public List<Dysfonctionnement> getDysfonctionnement() {
+        return dysfonctionnement;
+    }
+
+    public void setDysfonctionnement(List<Dysfonctionnement> dysfonctionnement) {
+        this.dysfonctionnement = dysfonctionnement;
+    }
+
     @ManyToOne
     @JoinColumn(name="id_lieu_stockage")
     private LieuStockage lieuStockage;

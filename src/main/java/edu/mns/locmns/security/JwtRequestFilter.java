@@ -30,8 +30,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         if(token != null && token.startsWith("Bearer ")){
             String jwt = token.substring(7); //Enleve les 7 caractères (Bearer + espace)
-            String nom = jwtUtils.getTokenBody(jwt).getSubject();
-            UserDetails userDetails = this.personneDetailsServiceLocMns.loadUserByUsername(nom);
+            String mail = jwtUtils.getTokenBody(jwt).getSubject();
+            UserDetails userDetails = this.personneDetailsServiceLocMns.loadUserByUsername(mail);
 
             if(jwtUtils.tokenValide(jwt, userDetails)){ //Vérifie la validité  des credentials
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =

@@ -57,6 +57,18 @@ VALUES
     ("512 GO"),
     ("128 GO");
 
+# INSERT INTO marque (nom_marque)
+# VALUES
+#     ("ACER"),
+#     ("DELL"),
+#     ("OCULUS"),
+#     ("ASUS"),
+#     ("LOGITECH"),
+#     ("HP"),
+#     ("LENOVO"),
+#     ("BENQ"),
+#     ("APPLE");
+
 INSERT INTO marque (nom_marque)
 VALUES
     ("ACER"),

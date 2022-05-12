@@ -31,7 +31,7 @@ public class PersonneDetailsServiceLocMns implements UserDetailsService { //Prov
     @Override
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
-        Personne personne = personneDao.findByMailWithRoles(mail).orElseThrow(() -> new UsernameNotFoundException("Mauvais mail / mot de passe"));
+        Personne personne = personneDao.findByMail(mail).orElseThrow(() -> new UsernameNotFoundException("Mauvais mail / mot de passe"));
 
         Optional<Gestionnaire> gestionnaire  = gestionnaireDao.findById(personne.getId());
 

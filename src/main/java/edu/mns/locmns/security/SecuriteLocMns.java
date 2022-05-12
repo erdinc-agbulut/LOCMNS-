@@ -43,7 +43,7 @@ public class SecuriteLocMns extends WebSecurityConfigurerAdapter { //Configurati
                 .and()
                     .csrf().disable() //On n'a pas de token formulaire (check pas le token lors réception requête)
                     .authorizeRequests()// Verifie le droit sur le lien cliqué
-                    .antMatchers("/connexion" , "/").permitAll()
+                    .antMatchers("/", "/connexion" ).permitAll()
                     .antMatchers("/gestionnaire/**").hasRole("GESTIONNAIRE")
                     .antMatchers("/**").hasAnyRole("UTILISATEUR", "GESTIONNAIRE")
                 .and().exceptionHandling()

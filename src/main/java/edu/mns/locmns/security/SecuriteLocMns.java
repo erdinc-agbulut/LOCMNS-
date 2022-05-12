@@ -43,7 +43,7 @@ public class SecuriteLocMns extends WebSecurityConfigurerAdapter {
                 .and()
                     .csrf().disable()
                     .authorizeRequests()
-                    .antMatchers("/connexion","/").permitAll()
+                    .antMatchers("/connexion","/","/contact","/contact").permitAll()
                     .antMatchers("/gestionnaire/**").hasRole("GESTIONNAIRE")
                     .antMatchers("/**").hasAnyRole("GESTIONNAIRE","UTILISATEUR")
                 .and()
@@ -53,7 +53,9 @@ public class SecuriteLocMns extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder getPasswordEncoder() { return new BCryptPasswordEncoder(); }
+    public PasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     @Bean
     public AuthenticationManager getAuthentificationManager() throws Exception {

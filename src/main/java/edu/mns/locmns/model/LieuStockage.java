@@ -22,5 +22,27 @@ public class LieuStockage {
     @OneToMany(mappedBy = "lieuStockage")
     private List<Materiel> listemateriel = new ArrayList<>();
 
-    //test github
+    public Integer getIdStock() {
+        return idStock;
+    }
+
+    public void setIdStock(Integer idStock) {
+        this.idStock = idStock;
+    }
+
+    public String getNomLieuStockage() {
+        return nomLieuStockage;
+    }
+
+    public void setNomLieuStockage(String nomLieuStockage) {
+        this.nomLieuStockage = nomLieuStockage;
+    }
+
+    public List<Materiel> getListemateriel() {
+        return listemateriel;
+    }
+
+    public void setListemateriel(List<Materiel> listemateriel) {
+        this.listemateriel = listemateriel;
+    }
 }

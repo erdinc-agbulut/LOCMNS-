@@ -37,7 +37,7 @@ public class MarqueController {
 
         this.marqueDao.save(marque);
 
-        return "La marque " + marque + " à été créer";
+        return "La marque " + marque.getNomMarque() + " à été créer";
     }
 
     @DeleteMapping("gestionnaire/marque/{id}")

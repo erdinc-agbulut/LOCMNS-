@@ -16,7 +16,7 @@ public class JwtUtils {
     //fonction pour récupérer le corp du token
     public Claims getTokenBody(String token){
         return Jwts.parser()
-                .setSigningKey("azerty123")
+                .setSigningKey(secret)
                 .parseClaimsJws(token)
                 .getBody();
     }

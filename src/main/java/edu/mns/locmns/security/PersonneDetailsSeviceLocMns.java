@@ -1,6 +1,8 @@
 package edu.mns.locmns.security;
 
+import edu.mns.locmns.dao.GestionnaireDao;
 import edu.mns.locmns.dao.PersonneDao;
+import edu.mns.locmns.model.Gestionnaire;
 import edu.mns.locmns.model.Personne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,10 +10,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PersonneDetailsSeviceLocMns implements UserDetailsService {
 
     private PersonneDao personneDao;
+
+    @Autowired
+    private GestionnaireDao gestionnaireDao;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -24,10 +31,13 @@ public class PersonneDetailsSeviceLocMns implements UserDetailsService {
 
         Personne personne = personneDao
                 .findByMailWithRoles(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Mauvais pseudo / mot de passe"));
+                .orElseThrow(() -> new UsernameNotFoundException("Mauvais mail / mot de passe"));
 
-        PersonneDetailLocMns personneDetailLocMns = new PersonneDetailLocMns(personne);
+        Optional<Gestionnaire> gestionnaire  = gestionnaireDao.findById(personne.getId());
 
-         return personneDetailLocMns;
+        PersonneDetailLocMns personneDetailsLocMns = new PersonneDetailLocMns(personne, gestionnaire.isPresent() );
+
+         return personneDetailsLocMns;
+
     }
 }

@@ -22,7 +22,7 @@ public class LieuStockageController {
         this.lieuStockageDao = lieuStockageDao;
     }
 
-    @GetMapping("/gestionnaire/liste-lieuUtilisations")
+    @GetMapping("/gestionnaire/liste-lieuStockage")
     public List<LieuStockage> listeLieuxStockages() {
 
         return this.lieuStockageDao.findAll();

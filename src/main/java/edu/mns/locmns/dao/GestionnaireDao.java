@@ -14,6 +14,7 @@ import java.util.Optional;
 public interface GestionnaireDao extends JpaRepository<Gestionnaire, Integer> {
 
     //Optional<Personne> findById(Personne personne);
+
     Optional<Personne> findByMail(String mail);
 
     //@Query("FROM Personne p JOIN FETCH p.id WHERE p.mail = :mail")

@@ -15,9 +15,11 @@ public class PersonneDetailLocMns implements UserDetails {
 
     private Personne personne;
     private GestionnaireDao gestionnaireDao;
+    private Boolean isGestionnaire;
 
-    public PersonneDetailLocMns(Personne personne) {
+    public PersonneDetailLocMns(Personne personne, Boolean isGestionnaire) {
         this.personne = personne;
+        this.isGestionnaire = isGestionnaire;
     }
 
 
@@ -28,42 +30,41 @@ public class PersonneDetailLocMns implements UserDetails {
 
         ArrayList<SimpleGrantedAuthority> listeAuthority = new ArrayList<>();
 
-       Optional<Gestionnaire> gestionnaire  = gestionnaireDao.findById(personne.getId());
 
-        if(gestionnaire.isPresent()) {
+        if(isGestionnaire) {
             listeAuthority.add(new SimpleGrantedAuthority("ROLE_GESTIONNAIRE"));
-        }
+        }else listeAuthority.add(new SimpleGrantedAuthority("ROLE_UTILISATEUR"));
 
         return listeAuthority;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return personne.getMotDePasse();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return personne.getMail();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

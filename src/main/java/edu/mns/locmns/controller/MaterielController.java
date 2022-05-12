@@ -36,7 +36,9 @@ public class MaterielController {
 
         this.materielDao.save(materiel);
 
-        return "Le materiel " + materiel +  " à été créer";
+        return "Matériel créer";
+
+        //return "Le materiel " + materiel +  " à été créer";
     }
 
     @DeleteMapping("/gestionnaire/materiel/{id}")

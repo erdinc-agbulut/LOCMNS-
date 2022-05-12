@@ -1,25 +1,28 @@
 INSERT INTO personne (nom, prenom, mail, mot_de_passe)
 VALUES
-    ("Norman","John","lorem@icloud.com","CGU46PYY9KI"), -- Gestionnaires
-    ("Hopper","Wylie","cursus.integer.mollis@protonmail.com","UZV81JBI8FJ"),
-    ("Roy","Cameran","eros.nec@aol.edu","AZL72XCD4TD"),
-    ("Vaughan","Elliott","donec@aol.ca","ZHH08RUD4LY"), -- Utilisateurs
-    ("Levine","Blossom","aenean@outlook.ca","FEU83FRV6RN"),
-    ("Crosby","Elijah","ipsum@icloud.org","QVB43WTB0QH"),
-    ("Wong","Brenden","eu.tempor@outlook.org","GNP87BTE3TH"),
-    ("Diaz","Mercedes","leo.vivamus@icloud.edu","YZT02JCD7KB"),
-    ("Brock","Colt","sociis.natoque.penatibus@google.ca","SAX33YRX1OM"),
-    ("Lowe","Naomi","magna.praesent.interdum@yahoo.ca","TVJ72HAS5BK"),
-    ("Gregory","Leigh","turpis.egestas.aliquam@hotmail.com","WMR85SKE4KO"),
-    ("Padilla","Bradley","nam.ac@hotmail.net","VSQ22GLQ8VP"),
-    ("Terry","Omar","urna.nunc@aol.com","JCC86LXU2WI"),
-    ("Terrell","John","risus.odio@icloud.edu","AYK82CSL7MK"),
-    ("Brown","Ezra","interdum.enim@aol.org","PVH26NPG2GK"),
-    ("Quinn","Camilla","penatibus@protonmail.ca","HRN84FMO5JX"),
-    ("Bray","Curran","velit.quisque@icloud.net","SXL12PQH1XR"),
-    ("Clayton","Valentine","non.hendrerit.id@yahoo.couk","EAA57JCQ1DE"),
-    ("Beach","Amaya","at.sem.molestie@hotmail.net","VGX97VON5MM"),
-    ("Porter","Victor","cras.convallis@icloud.edu","QYM49WMG7AE");
+    ("Norman","John","lorem@icloud.com","$2a$10$zg/HJw0HjHaA.sWOg8kZbOdUHiGqFdz9/xl9i22vl54iOoOJeye.O"), -- Gestionnaires
+    ("Hopper","Wylie","cursus.integer.mollis@protonmail.com","$2a$10$jJCdZPTYDfLmnxLazGn05OImlqgKBorBfRXnMmGM.df7sF2kwCmpu"),
+    ("Roy","Cameran","eros.nec@aol.edu","$2a$10$nNeCZYgsf8L4n3k.hOoviO5HvS5CqTN2Q15sQfbl2N57kY0O3HfFq"),
+    ("Vaughan","Elliott","donec@aol.ca","$2a$10$d9lkyK8a.J6gFqTfZ277QOFjdLKTnqt3.HmDeb44mW6///pFrwFDW"), -- Utilisateurs
+    ("Levine","Blossom","aenean@outlook.ca","$2a$10$7yf9Rp.5FH46MtCmsMcFM.vKIKJi4y5NDnn9CYLh2br7WpETtUiGq"),
+    ("Crosby","Elijah","ipsum@icloud.org","$2a$10$bT//awSYc2co9ZQHXiXSYe.GakF93mAQqHK3H1TIipcdCRic5PB3m"),
+    ("Wong","Brenden","eu.tempor@outlook.org","$2a$10$4lkYxHkLsT3YuVu3o2Hu1O77VziVrzSi.8bzOndFXh7p4MLItXJ7y"),
+    ("Diaz","Mercedes","leo.vivamus@icloud.edu","$2a$10$tIwjgdnFpH1N4Xc/v8Uk2OqM8fK8GLtDMD0mUFKPGHbJ9nnwA1Tu6"),
+    ("Brock","Colt","sociis.natoque.penatibus@google.ca","$2a$10$Cly8lPt2INI9QNOpiwJbnOcD0MoQnKuBQGiHT1Q74sop8gxBs5Lne"),
+    ("Lowe","Naomi","magna.praesent.interdum@yahoo.ca","$2a$10$Le6xNfiO.ghf7PMinMUPS.4AnKQQ0Gadi6WNMdCxFY9zdlZJi4OVi"),
+    ("Gregory","Leigh","turpis.egestas.aliquam@hotmail.com","$2a$10$XNOgXPIAUdQdpNtjUEpLL.Tjhbcsr2NmUYpBh1N1BkHw70wbIsrDS"),
+    ("Padilla","Bradley","nam.ac@hotmail.net","$2a$10$.7l4QaHBsC8VGvxHk4qeU.I2jrfUdtr.kAH1cNEn1xXfS1oRzp1LW"),
+    ("Terry","Omar","urna.nunc@aol.com","$2a$10$zHb0vvULVDpsL.zWyM4BwuA1Tk6YKGkaX85NE7BVfSodn5ckYNhM2"),
+    ("Terrell","John","risus.odio@icloud.edu","$2a$10$BteMiygZWnTEA.wA5B555umOOj9mw1vnpnChbP4PERxjj8dnpQEs2"),
+    ("Brown","Ezra","interdum.enim@aol.org","$2a$10$3a0Ow0dkyJCTYdvFFvwR/.xFX552NM5mj3JP8ctLeUb0Wpo1wJey."),
+    ("Quinn","Camilla","penatibus@protonmail.ca","$2a$10$v6IBsTsl70jLaP5Evisf7O06.LCj6tQOocdnVU4p//roWKRyQsOF."),
+    ("Bray","Curran","velit.quisque@icloud.net","$2a$10$I7OtzUGHIBLis6.jswmCaOsfe5rwfPGH90HtQFfjLUogg5Mf6xCGi"),
+    ("Clayton","Valentine","non.hendrerit.id@yahoo.couk","$2a$10$86bLB1JFjHM4JLOvHTWdbOJxgB5Un9Otr7UUjyRrSfC/ewsPme57."),
+    ("Beach","Amaya","at.sem.molestie@hotmail.net","$2a$10$i.Fqh4zYBCFdSIsahpXQfurSARQ.VHp1VF8xbJhbwHhbOv4zpdxMS"),
+    ("Porter","Victor","cras.convallis@icloud.edu","$2a$10$A0Q7IY85fO.Hkm6ORT.ZIuzkAglYw/uluhSm2JvENJI6EIGU57P4S"),
+    ("UTILISATEUR", "utilisateur", "utilisateur@gmail.com", "$2a$10$EkZchpqV0/AjwAk42/W6veS2oqzUHvz5K8PrsR9ynZRzLFLMdw03S"), -- test
+    ("GESTIONNAIRE", "Gestionnaire", "gestionnaire@gmail.com", "$2a$10$EkZchpqV0/AjwAk42/W6veS2oqzUHvz5K8PrsR9ynZRzLFLMdw03S");
+
 
 INSERT INTO lieu_stockage (nom_lieu_stockage)
 VALUES
@@ -132,7 +135,8 @@ VALUES
     (17,"03 55 91 38 64","velit@protonmail.net",2), -- Intervenants
     (18,"04 51 18 59 67","accumsan.laoreet.ipsum@yahoo.org",2),
     (19,"02 29 65 57 86","in@hotmail.net",2),
-    (20,"03 32 73 96 91","aliquet@protonmail.ca",2);
+    (20,"03 32 73 96 91","aliquet@protonmail.ca",2),
+    (21,"03 87 87 45 45","Metz",1);
 
 INSERT INTO gestionnaire (id)
 VALUES

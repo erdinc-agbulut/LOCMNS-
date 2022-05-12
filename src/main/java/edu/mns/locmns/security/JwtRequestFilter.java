@@ -31,9 +31,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if(token != null && token.startsWith("Bearer ")) {
             String jwt = token.substring(7);
 
-            String nom = jwtUtils.getTokenBody(jwt).getSubject();
+            String mail = jwtUtils.getTokenBody(jwt).getSubject();
 
-            UserDetails userDetails = this.personneDetailsSeviceLocMns.loadUserByUsername(nom);
+            UserDetails userDetails = this.personneDetailsSeviceLocMns.loadUserByUsername(mail);
 
             if (jwtUtils.tokenValid(jwt, userDetails)) {
 

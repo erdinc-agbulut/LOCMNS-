@@ -57,7 +57,31 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>Local</id>
+            <properties>
+                <secret-jwtLocMns>aucun-token</secret-jwtLocMns>
+                <adresse-bdd>localhost</adresse-bdd>
+                <nom-bdd>LocMNS</nom-bdd>
+                <nom-utilisateur-bdd>root</nom-utilisateur-bdd>
+                <!--suppress UnresolvedMavenProperty -->
+                <mot-de-passe-utilisateur-bdd>Yow11373@@@@</mot-de-passe-utilisateur-bdd>
+            </properties>
+
+        </profile>
+    </profiles>
+
     <build>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface EmpruntDao extends JpaRepository<Emprunt, Integer> {
 
-    /*Optional<Emprunt> findByidUtilisateurAndidMaterielAnddateEmprunt(
+  /*  Optional<Emprunt> findByidUtilisateurAndidMaterielAnddateEmprunt(
             Integer idUtilisateur,
             Integer idMateriel,
             Date date

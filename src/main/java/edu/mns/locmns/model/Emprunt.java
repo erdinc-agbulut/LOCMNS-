@@ -10,6 +10,7 @@ import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@IdClass(Emprunt.class)
 public class Emprunt {
 
     @Id

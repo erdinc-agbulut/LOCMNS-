@@ -6,7 +6,10 @@ import edu.mns.locmns.model.Marque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Develop
 import java.util.List;
 
 @CrossOrigin
@@ -33,19 +36,15 @@ public class MarqueController {
     }
 
     @PostMapping("/gestionnaire/marque")
-    public String createMarque(@RequestBody Marque marque){
-
+    public String createMarque (@RequestBody Marque marque){
         this.marqueDao.save(marque);
-
-        return "La marque " + marque.getNomMarque() + " à été créer";
+        return "La marque " + marque +  " a été créee";
     }
 
-    @DeleteMapping("gestionnaire/marque/{id}")
-    public String deleteMarque(@PathVariable int id) {
-
+    @DeleteMapping("/gestionnaire/marque/{id}")
+    public String deleteMarque(@PathVariable int id){
         this.marqueDao.deleteById(id);
-
-        return "La marque à été supprimer";
+        return "La marque a été surpimée";
     }
 
 }

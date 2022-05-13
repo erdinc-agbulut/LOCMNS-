@@ -9,21 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin
+@RestController
 public class InfoReparationController {
 
     private InfoReparationDao infoReparationDao;
 
     @Autowired
     public InfoReparationController(InfoReparationDao infoReparationDao) {
-
         this.infoReparationDao = infoReparationDao;
     }
 
-    @GetMapping("/gestionnaire/liste-infoReparations")
-    public List<InfoReparation> listeInfoReparations() {
+    @GetMapping("/gestionnaire/liste-infoReparation")
+    public List<InfoReparation> listeInfoReparations(){
         return this.infoReparationDao.findAll();
     }
-
 }

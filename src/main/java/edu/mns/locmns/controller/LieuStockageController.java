@@ -13,23 +13,26 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class LieuStockageController {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Develop
     private LieuStockageDao lieuStockageDao;
 
     @Autowired
     public LieuStockageController(LieuStockageDao lieuStockageDao) {
-
         this.lieuStockageDao = lieuStockageDao;
     }
 
-    @GetMapping("/gestionnaire/liste-lieuStockage")
-    public List<LieuStockage> listeLieuxStockages() {
-
+    @GetMapping("/gestionnaire/liste-lieuxStockage") //
+    public List<LieuStockage> listeLieuxStockage(){
         return this.lieuStockageDao.findAll();
     }
 
-    @GetMapping("/gestionnaire/lieuStockage/{id}")
-    public LieuStockage lieuStockages(@PathVariable Integer id){
+    @GetMapping ("/gestionnaire/lieuStockage/{id}") //
+    public LieuStockage lieuStockage(@PathVariable Integer id){
         return this.lieuStockageDao.findById(id).orElse(null);
     }
+
+
 }

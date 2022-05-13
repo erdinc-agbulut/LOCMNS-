@@ -19,9 +19,8 @@ VALUES
     ("Bray","Curran","velit.quisque@icloud.net","$2a$10$I7OtzUGHIBLis6.jswmCaOsfe5rwfPGH90HtQFfjLUogg5Mf6xCGi"),
     ("Clayton","Valentine","non.hendrerit.id@yahoo.couk","$2a$10$86bLB1JFjHM4JLOvHTWdbOJxgB5Un9Otr7UUjyRrSfC/ewsPme57."),
     ("Beach","Amaya","at.sem.molestie@hotmail.net","$2a$10$i.Fqh4zYBCFdSIsahpXQfurSARQ.VHp1VF8xbJhbwHhbOv4zpdxMS"),
-    ("Porter","Victor","cras.convallis@icloud.edu","$2a$10$A0Q7IY85fO.Hkm6ORT.ZIuzkAglYw/uluhSm2JvENJI6EIGU57P4S"),
-    ("UTILISATEUR", "utilisateur", "utilisateur@gmail.com", "$2a$10$EkZchpqV0/AjwAk42/W6veS2oqzUHvz5K8PrsR9ynZRzLFLMdw03S"), -- test
-    ("GESTIONNAIRE", "Gestionnaire", "gestionnaire@gmail.com", "$2a$10$EkZchpqV0/AjwAk42/W6veS2oqzUHvz5K8PrsR9ynZRzLFLMdw03S");
+    ("Porter","Victor","cras.convallis@icloud.edu","$2a$10$A0Q7IY85fO.Hkm6ORT.ZIuzkAglYw/uluhSm2JvENJI6EIGU57P4S");
+
 
 
 INSERT INTO lieu_stockage (nom_lieu_stockage)
@@ -59,6 +58,18 @@ VALUES
     ("Windows"),
     ("512 GO"),
     ("128 GO");
+
+# INSERT INTO marque (nom_marque)
+# VALUES
+#     ("ACER"),
+#     ("DELL"),
+#     ("OCULUS"),
+#     ("ASUS"),
+#     ("LOGITECH"),
+#     ("HP"),
+#     ("LENOVO"),
+#     ("BENQ"),
+#     ("APPLE");
 
 INSERT INTO marque (nom_marque)
 VALUES
@@ -117,7 +128,7 @@ VALUES
 
 
 
-INSERT INTO utilisateur (id,numero_telephone,adresse,id_statut)
+INSERT INTO utilisateur (id,numero_telephone,adresse, id_statut)
 VALUES
     (4,"08 61 48 82 14","7786 Tincidunt Street",1), -- Etudiants
     (5,"07 78 98 57 37","561-2014 Arcu. Av.",1),
@@ -135,8 +146,7 @@ VALUES
     (17,"03 55 91 38 64","velit@protonmail.net",2), -- Intervenants
     (18,"04 51 18 59 67","accumsan.laoreet.ipsum@yahoo.org",2),
     (19,"02 29 65 57 86","in@hotmail.net",2),
-    (20,"03 32 73 96 91","aliquet@protonmail.ca",2),
-    (21,"03 87 87 45 45","Metz",1);
+    (20,"03 32 73 96 91","aliquet@protonmail.ca",2);
 
 INSERT INTO gestionnaire (id)
 VALUES
@@ -179,7 +189,7 @@ VALUES
 
 INSERT INTO emprunt (date_emprunt, date_retour ,date_validation, id_gestionnaire_entree, id_gestionnaire_retour, id_materiel, id_utilisateur) -- Emprunts retournés
 VALUES
-    ('2020-01-25','2023-01-28','2022-09-09',1,1,1, 5),
+    ('2020-01-25','2023-01-28','2022-09-09',1, 1, 1, 5),
     ('2021-02-10','2022-04-05','2021-02-13', 2, 3, 5, 20),
     ('2021-09-30', '2022-03-15', '2022-04-02', 1, 2, 2, 9);
 INSERT INTO emprunt(date_emprunt, date_validation, date_retour, id_gestionnaire_entree, id_materiel, id_utilisateur, date_prolongation, id_gestionnaire_prolongation) -- Emprunts prolongés

@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@IdClass(Emprunt.class)
 public class Emprunt {
 
     @Id
@@ -27,12 +26,13 @@ public class Emprunt {
 
     private Date dateProlongation;
 
+
+
     @ManyToMany
     @JoinTable(
             name="contient",
             joinColumns = @JoinColumn(name="id_emprunt"),
             inverseJoinColumns = @JoinColumn(name="id_cadre")
-
     )
     private List<CadreUtilisation> listeCadresUtilisation = new ArrayList<>();
 
@@ -41,7 +41,6 @@ public class Emprunt {
             name="affecter",
             joinColumns = @JoinColumn(name="id_emprunt"),
             inverseJoinColumns = @JoinColumn(name="id_lieu")
-
     )
     private List<LieuUtilisation> listeLieuxUtilisation = new ArrayList<>();
 
@@ -59,7 +58,7 @@ public class Emprunt {
 
     @ManyToOne
     @JoinColumn(name="id_materiel")
-    private Materiel materiel;
+    Materiel materiel;
 
     @ManyToOne
     @JoinColumn(name="id_utilisateur")

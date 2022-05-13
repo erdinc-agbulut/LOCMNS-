@@ -26,7 +26,7 @@ public class ModeleController {
         return this.modeleDao.findAll();
     }
 
-    @GetMapping("/gestionnaire/liste-modeles/{id}")
+    @GetMapping("/gestionnaire/modele/{id}")
     public Modele modele(@PathVariable Integer id) {
 
         return this.modeleDao.findById(id).orElse(null);

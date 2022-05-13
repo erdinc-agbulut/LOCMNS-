@@ -9,7 +9,10 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableJpaAuditing
+<<<<<<<<< Temporary merge branch 1
 
+=========
+>>>>>>>>> Temporary merge branch 2
 public class LocMnsApplication {
 
     @PostConstruct

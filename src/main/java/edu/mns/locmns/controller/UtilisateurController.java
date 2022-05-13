@@ -29,7 +29,7 @@ public class UtilisateurController {
        return this.utilisateurDao.findAll();
     }
 
-    @GetMapping("/gestionnaire/liste-utilisateurs/{id}")
+    @GetMapping("/gestionnaire/utilisateur/{id}")
     public Utilisateur utilisateur(@PathVariable Integer id){
         return this.utilisateurDao.findById(id).orElse(null);
     }

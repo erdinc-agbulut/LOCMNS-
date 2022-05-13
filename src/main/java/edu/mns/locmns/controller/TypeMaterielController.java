@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
-@RestController
 @CrossOrigin
+@RestController
 public class TypeMaterielController {
 
     private TypeMaterielDao typeMaterielDao;
@@ -22,12 +23,13 @@ public class TypeMaterielController {
     }
 
     @GetMapping("/liste-typeMateriels")
-    public List<TypeMateriel> listeTypeMateriels() {
+    public List<TypeMateriel> ListeTypeMateriels(){
         return this.typeMaterielDao.findAll();
     }
 
-    @GetMapping("/liste-typeMateriels/{id}")
-    public TypeMateriel typeMateriels(@PathVariable Integer id){
+    @GetMapping("/typeMateriel/{id}")
+    public TypeMateriel typeMateriel(@PathVariable Integer id){
         return this.typeMaterielDao.findById(id).orElse(null);
     }
+
 }

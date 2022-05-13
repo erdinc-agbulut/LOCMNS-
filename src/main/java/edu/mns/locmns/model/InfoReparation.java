@@ -4,7 +4,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.zip.DataFormatException;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -12,22 +11,22 @@ public class InfoReparation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idInfoReparation;
 
     private Date datePrevueReparation;
 
     private String cheminDocument;
 
+    public Integer getIdInfoReparation() {
+        return idInfoReparation;
+    }
+
     @ManyToOne
     @JoinColumn(name = "id_materiel")
     private Materiel materiel;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdInfoReparation(Integer idInfoReparation) {
+        this.idInfoReparation = idInfoReparation;
     }
 
     public Date getDatePrevueReparation() {

@@ -22,7 +22,6 @@ public class Modele {
             name="detailler",
             joinColumns = @JoinColumn(name="id_modele"),
             inverseJoinColumns = @JoinColumn(name="id_caracteristique")
-
     )
     private List<Caracteristique> listcaracteristique = new ArrayList<>();
 
@@ -35,7 +34,7 @@ public class Modele {
     private TypeMateriel typeMateriel;
 
     @OneToMany(mappedBy = "modele")
-    private List <Materiel> materiel = new ArrayList<>();
+    private List<Materiel> materiel = new ArrayList<>();
 
     public Integer getIdModele() {
         return idModele;

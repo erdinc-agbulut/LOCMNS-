@@ -27,7 +27,7 @@ public class Gestionnaire extends Personne{
     private List<Emprunt> listeEmpruntsRetour = new ArrayList<>();
 
     @OneToMany(mappedBy = "validationProlongation")
-    private List<Emprunt> listEmpruntProlongation = new ArrayList<>();
+    private List<Emprunt> listeEmpruntsProlongation = new ArrayList<>();
 
 
     public Gestionnaire() {

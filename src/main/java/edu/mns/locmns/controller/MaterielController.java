@@ -1,7 +1,5 @@
 package edu.mns.locmns.controller;
 
-
-import com.fasterxml.jackson.annotation.JsonView;
 import edu.mns.locmns.dao.MaterielDao;
 import edu.mns.locmns.model.Materiel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +34,7 @@ public class MaterielController {
 
         this.materielDao.save(materiel);
 
-        return "Matériel créer";
+        return "Matériel crée";
 
         //return "Le materiel " + materiel +  " à été créer";
     }

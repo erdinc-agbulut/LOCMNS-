@@ -21,31 +21,27 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     JwtUtils jwtUtils;
 
     @Autowired
-    PersonneDetailsSeviceLocMns personneDetailsSeviceLocMns;
+    PersonneDetailsServiceLocMns personneDetailsServiceLocMns;
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        String token = request.getHeader("Authorization"); //Recoit l'authorisation où il y a notre token
 
-        String token = request.getHeader("Authorization");
-
-        if(token != null && token.startsWith("Bearer ")) {
-            String jwt = token.substring(7);
-
+        if(token != null && token.startsWith("Bearer ")){
+            String jwt = token.substring(7); //Enleve les 7 caractères (Bearer + espace)
             String mail = jwtUtils.getTokenBody(jwt).getSubject();
+            UserDetails userDetails = this.personneDetailsServiceLocMns.loadUserByUsername(mail);
 
-            UserDetails userDetails = this.personneDetailsSeviceLocMns.loadUserByUsername(mail);
-
-            if (jwtUtils.tokenValid(jwt, userDetails)) {
-
+            if(jwtUtils.tokenValide(jwt, userDetails)){ //Vérifie la validité  des credentials
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken
                         .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken); //Sauvegarde l'authentification dans le contexte
             }
+
         }
-
         filterChain.doFilter(request, response);
-
     }
 }

@@ -1,6 +1,5 @@
 package edu.mns.locmns.controller;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import edu.mns.locmns.dao.EmpruntDao;
 import edu.mns.locmns.model.Emprunt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,47 +16,39 @@ public class EmpruntController {
 
     private EmpruntDao empruntDao;
 
-    @Autowired
-    public EmpruntController(EmpruntDao empruntDao) {this.empruntDao = empruntDao;}
 
-    @GetMapping("liste-reservations")
-    public List<Emprunt> listeEmprunts () {
+
+    @Autowired
+    public EmpruntController(EmpruntDao empruntDao) {
+        this.empruntDao = empruntDao;
+    }
+
+    @GetMapping("/gestionnaire/liste-emprunts")
+    public List<Emprunt> listeEmprunts(){
         return this.empruntDao.findAll();
     }
 
-   /* @GetMapping("/emprunt/{idUtilisateur}/{idMateriel}/{dateEmprunt}")
-    public Emprunt emprunt(
-            @PathVariable Integer idUtilisateur,
-            @PathVariable Integer idMateriel,
-            @PathVariable String dateEmprunt
-    ) throws ParseException {
-
+/*    @GetMapping("/emprunt/{idUtilisateur}/{idMateriel}/{dateEmprunt}/{dateRetour}/{NomLieuUtilisation}/{typeEvenement}")
+    public Emprunt emprunt(@PathVariable Integer idUtilisateur,
+                           @PathVariable Integer idMateriel,
+                           @PathVariable String dateEmprunt)
+                           throws ParseException {
         Date nouvelleDateEmprunt = new SimpleDateFormat("yyyy-MM-dd").parse(dateEmprunt);
 
-        return this.empruntDao
-                .findByidUtilisateurAndidMaterielAnddateEmprunt(idUtilisateur,idMateriel,nouvelleDateEmprunt)
-                .orElse(null);
+        return this.empruntDao.findByIdUtilisateurAndIdMaterielAndDateEmprunt(idUtilisateur, idMateriel, nouvelleDateEmprunt).orElse(null);
+
     }*/
 
-    @PostMapping("/emprunt")
-    public String createEmprunt(@RequestBody Emprunt emprunt){
-
+    @PostMapping("/reservation")
+    public String createReservation (@RequestBody Emprunt emprunt){
         this.empruntDao.save(emprunt);
-
-        return "La demande de réservation est créer";
+        return "La demande de réservation est créee";
     }
 
-   /* @DeleteMapping("/gestionnaire/emprunt/{idUtilisateur}/{idMateriel}/{dateEmprunt}")
-    public String deleteReservation(
-            @PathVariable Integer idUtilisateur,
-            @PathVariable Integer idMateriel,
-            @PathVariable Date dateEmprunt
-    ){
-        this.empruntDao.deleteByidUtilisateurAndidMaterielAndDateEmprunt(
-                idUtilisateur,
-                idMateriel,
-                dateEmprunt);
+/*    @DeleteMapping("/gestionnaire/reservation/{idUtilisateur}/{idMateriel}/{dateEmprunt})")
+    public String deleteReservation(@PathVariable Integer idUtilisateur, @PathVariable Integer idMateriel, @PathVariable Date dateEmprunt) {
+        //this.empruntDao.deleteByIdUtilisateurAndIdMaterielAndDateEmprunt(idUtilisateur, idMateriel, dateEmprunt);
+        return "Le matériel a bien été supprimé";
 
-        return "Le materiel à bien été supprimer";
     }*/
 }

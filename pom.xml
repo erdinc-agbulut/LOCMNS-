@@ -60,7 +60,31 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <activation> <!-- active le profil par défaut -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>Local</id>
+            <properties>
+                <secret-jwtLocMns>Aucun token</secret-jwtLocMns>
+                <adresse-bdd>localhost</adresse-bdd>
+                <nom-bdd>locmns</nom-bdd>
+                <nom-utilisateur-bdd>root</nom-utilisateur-bdd>
+                <mot-de-passe-utilisateur>Mesemu_3</mot-de-passe-utilisateur>
+            </properties>
+
+        </profile>
+
+    </profiles>
+
     <build>
+        <resources>
+            <resource> <!-- Précise chemin pour accéder directement fichier et injecté infos du profil -->
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

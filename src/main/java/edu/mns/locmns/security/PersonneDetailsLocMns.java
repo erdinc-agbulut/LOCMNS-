@@ -30,8 +30,6 @@ public class PersonneDetailsLocMns implements UserDetails {
 
         ArrayList<SimpleGrantedAuthority> listeAuthority = new ArrayList<>();
 
-
-
         if(isGestionnaire) {
             listeAuthority.add(new SimpleGrantedAuthority("ROLE_GESTIONNAIRE"));
         }else{

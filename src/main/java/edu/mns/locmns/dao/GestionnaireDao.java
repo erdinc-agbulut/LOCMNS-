@@ -13,6 +13,8 @@ import java.util.Optional;
 @Repository
 public interface GestionnaireDao extends JpaRepository<Gestionnaire, Integer> {
 
+
+    // Optionnal permet de gérer que le résultat soit vide ou non. Similaire à une condition IF/ELSE
     //Optional<Personne> findById(Personne personne);
     Optional<Personne> findByMail(String mail);
 

@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)  // permet de transformer la classe en table dans la BDD
 public class Gestionnaire extends Personne{
 
-    @ManyToOne
+    @ManyToOne                         // représente une clef étrangère dans la BDD ( via le schéma UML : relation Many to One )
     @JoinColumn(name="id_personne")
     private Personne personne;
 
-    @OneToMany(mappedBy = "gestionnaire")
+    @OneToMany(mappedBy = "gestionnaire")                  // mappedBy permet de faire la liaison dans les 2 sens
     private List<Retard> listeRetard = new ArrayList<>();
 
     @OneToMany(mappedBy = "gestionnaire")

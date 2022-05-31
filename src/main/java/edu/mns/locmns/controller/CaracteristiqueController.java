@@ -16,10 +16,12 @@ public class CaracteristiqueController {
 
     private CaracteristiqueDao caracteristiqueDao;
 
+    //------------------------ Injection de dépendances -------------------
     @Autowired
     public CaracteristiqueController(CaracteristiqueDao caracteristiqueDao) {
         this.caracteristiqueDao = caracteristiqueDao;
     }
+    //------------------------ Injection de dépendances -------------------
 
     @GetMapping("/gestionnaire/liste-caracteristiques")
     public List<Caracteristique> listeCaracteristiques(){

@@ -10,7 +10,7 @@ public class Caracteristique {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCaracteristique;
+    private Integer idCaracteristique;          // Integer puisque c'est un objet il peut contenir la valeur Null contrairement à int
 
     private String nomCaracteristique;
 

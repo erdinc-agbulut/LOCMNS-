@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class CadreUtilisation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)      // Auto-incrémentation
     private Integer idCadre;
 
     private String typeEvenement;

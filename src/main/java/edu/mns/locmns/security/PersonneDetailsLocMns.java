@@ -68,4 +68,6 @@ public class PersonneDetailsLocMns implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public Personne getPersonne() {return personne;}
 }

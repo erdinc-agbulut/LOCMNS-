@@ -14,6 +14,8 @@ import java.util.List;
 @RestController
 public class UtilisateurController {
 
+
+
     private UtilisateurDao utilisateurDao;
 
     @Autowired
@@ -47,6 +49,18 @@ public class UtilisateurController {
     public String chiffrer(){
         return encoder.encode("QYM49WMG7AE");
     }*/
+
+    //Création du compte utilisateur
+    @PostMapping("/donnees-CreationCompte")
+    public String donneesCreationCompte (@RequestBody Utilisateur utilisateur) {
+
+        utilisateur.setMotDePasse(utilisateur.getMotDePasse());
+
+        System.out.println("Le compte utilisateur à bien été créer ");
+
+        this.utilisateurDao.save(utilisateur);
+        return "Le compte utilisateur à bien été créer";
+    }
 
 
 

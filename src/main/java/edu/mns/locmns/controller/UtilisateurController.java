@@ -3,6 +3,8 @@ package edu.mns.locmns.controller;
 import edu.mns.locmns.dao.UtilisateurDao;
 import edu.mns.locmns.model.Personne;
 import edu.mns.locmns.model.Utilisateur;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.tomcat.util.buf.UEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -54,12 +56,10 @@ public class UtilisateurController {
     @PostMapping("/donnees-CreationCompte")
     public String donneesCreationCompte (@RequestBody Utilisateur utilisateur) {
 
-        utilisateur.setMotDePasse(utilisateur.getMotDePasse());
+        utilisateur.setMotDePasse(encoder.encode(utilisateur.getMotDePasse()));
+        utilisateurDao.save(utilisateur);
 
-        System.out.println("Le compte utilisateur à bien été créer ");
-
-        this.utilisateurDao.save(utilisateur);
-        return "Le compte utilisateur à bien été créer";
+        return"le compte utilisateur à bien été créer";
     }
 
 

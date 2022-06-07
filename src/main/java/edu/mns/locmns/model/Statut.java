@@ -12,15 +12,16 @@ public class Statut {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idStatut;
+
     private String role;
 
     public Integer getId() {
-        return id;
+        return idStatut;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idStatut = id;
     }
 
     public String getRole() {

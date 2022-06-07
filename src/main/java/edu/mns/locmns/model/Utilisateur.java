@@ -93,4 +93,12 @@ public class Utilisateur extends Personne {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
+    }
 }

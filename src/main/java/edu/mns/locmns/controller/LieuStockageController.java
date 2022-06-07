@@ -1,7 +1,9 @@
 package edu.mns.locmns.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import edu.mns.locmns.dao.LieuStockageDao;
 import edu.mns.locmns.model.LieuStockage;
+import edu.mns.locmns.view.VueEmprunt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class LieuStockageController {
+
     private LieuStockageDao lieuStockageDao;
 
     @Autowired
@@ -20,12 +23,14 @@ public class LieuStockageController {
         this.lieuStockageDao = lieuStockageDao;
     }
 
-    @GetMapping("/gestionnaire/liste-lieuxStockage") //
-    public List<LieuStockage> listeLieuxStockage(){
+    @GetMapping("/gestionnaire/liste-lieuxStockage")
+    @JsonView(VueEmprunt.listeLieux.class)
+    public List<LieuStockage> ListeLieuxStockage(){
         return this.lieuStockageDao.findAll();
     }
 
-    @GetMapping ("/gestionnaire/lieuStockage/{id}") //
+    @GetMapping ("/gestionnaire/lieuStockage/{id}")
+    @JsonView(VueEmprunt.listeLieux.class)
     public LieuStockage lieuStockage(@PathVariable Integer id){
         return this.lieuStockageDao.findById(id).orElse(null);
     }

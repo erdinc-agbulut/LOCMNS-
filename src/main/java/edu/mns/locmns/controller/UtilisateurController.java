@@ -58,7 +58,7 @@ public class UtilisateurController {
 
         utilisateur.setMotDePasse(encoder.encode(utilisateur.getMotDePasse()));
         utilisateurDao.save(utilisateur);
-
+        System.out.println(utilisateur.getStatut());
         return"le compte utilisateur à bien été créer";
     }
 

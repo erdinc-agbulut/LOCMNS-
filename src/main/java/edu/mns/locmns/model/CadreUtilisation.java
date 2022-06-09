@@ -31,4 +31,5 @@ public class CadreUtilisation {
     public void setTypeEvenement(String typeEvenement) {
         this.typeEvenement = typeEvenement;
     }
+
 }

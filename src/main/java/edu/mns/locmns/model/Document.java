@@ -29,4 +29,5 @@ public class Document {
     public void setNomDoc(String nomDoc) {
         this.nomDoc = nomDoc;
     }
+
 }

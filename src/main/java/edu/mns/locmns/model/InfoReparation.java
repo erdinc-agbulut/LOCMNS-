@@ -44,4 +44,12 @@ public class InfoReparation {
     public void setCheminDocument(String cheminDocument) {
         this.cheminDocument = cheminDocument;
     }
+
+    public Materiel getMateriel() {
+        return materiel;
+    }
+
+    public void setMateriel(Materiel materiel) {
+        this.materiel = materiel;
+    }
 }

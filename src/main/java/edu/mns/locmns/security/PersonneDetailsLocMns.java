@@ -69,5 +69,7 @@ public class PersonneDetailsLocMns implements UserDetails {
         return true;
     }
 
-    public Personne getPersonne() {return personne;}
+    public Personne getPersonne() {
+        return personne;
+    }
 }

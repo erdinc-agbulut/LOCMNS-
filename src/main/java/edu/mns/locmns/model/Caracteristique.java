@@ -29,4 +29,5 @@ public class Caracteristique {
     public void setNomCaracteristique(String nomCaracteristique) {
         this.nomCaracteristique = nomCaracteristique;
     }
+
 }

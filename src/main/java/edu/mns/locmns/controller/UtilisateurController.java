@@ -61,8 +61,4 @@ public class UtilisateurController {
         System.out.println(utilisateur.getStatut());
         return"le compte utilisateur à bien été créer";
     }
-
-
-
-
 }

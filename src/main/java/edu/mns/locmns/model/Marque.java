@@ -10,11 +10,13 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class Marque {
 
-    private String nomMarque;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMarque;
+
+    private String nomMarque;
 
     @OneToMany
     private List<Modele> listeModeles = new ArrayList<>();
@@ -33,5 +35,13 @@ public class Marque {
 
     public void setNomMarque(String nomMarque) {
         this.nomMarque = nomMarque;
+    }
+
+    public List<Modele> getListeModeles() {
+        return listeModeles;
+    }
+
+    public void setListeModeles(List<Modele> listeModeles) {
+        this.listeModeles = listeModeles;
     }
 }

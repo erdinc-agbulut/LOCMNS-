@@ -31,6 +31,17 @@ public class Dysfonctionnement {
     @JoinColumn(name="id_materiel")
     private Materiel materiel;
 
+    public Dysfonctionnement(Date dateDysfonctionnement, String descriptif, Utilisateur utilisateur, Materiel materiel) {
+        this.dateDysfonctionnement = dateDysfonctionnement;
+        this.descriptif = descriptif;
+        this.utilisateur = utilisateur;
+        this.materiel = materiel;
+    }
+
+    public Dysfonctionnement() {
+
+    }
+
     public Integer getId() {
         return id;
     }
@@ -61,5 +72,21 @@ public class Dysfonctionnement {
 
     public void setDatePriseEnCharge(Date datePriseEnCharge) {
         this.datePriseEnCharge = datePriseEnCharge;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Materiel getMateriel() {
+        return materiel;
+    }
+
+    public void setMateriel(Materiel materiel) {
+        this.materiel = materiel;
     }
 }

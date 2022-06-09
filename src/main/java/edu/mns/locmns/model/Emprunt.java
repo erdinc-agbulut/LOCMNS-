@@ -1,11 +1,17 @@
 package edu.mns.locmns.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import edu.mns.locmns.view.View;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 
 @Entity
@@ -14,17 +20,29 @@ public class Emprunt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(View.ListeDemandesEmprunt.class)
     private Integer idEmprunt;
 
-    private Date dateDemande;
+    @JsonView(View.ListeDemandesEmprunt.class)
+    private LocalDateTime dateDemandeEmprunt;
 
-    private Date dateEmprunt;
+    @JsonView(View.ListeDemandesEmprunt.class)
+    private LocalDateTime dateEmprunt;
 
-    private Date dateRetour;
+    @JsonView(View.ListeDemandesEmprunt.class)
+    private LocalDateTime dateRetour;
 
-    private Date dateValidation;
+    @JsonView(View.ListeDemandesEmprunt.class)
+    private LocalDateTime dateProlongation;
 
-    private Date dateProlongation;
+    private LocalDateTime dateValidationEmprunt;
+
+    private LocalDateTime dateValidationRetour;
+
+    private LocalDateTime dateValidationProlongation;
+
+    @JsonView(View.ListeDemandesEmprunt.class)
+    private LocalDateTime dateDemandeRetour;
 
 
     @ManyToOne
@@ -41,16 +59,17 @@ public class Emprunt {
 
     @ManyToOne
     @JoinColumn(name="id_materiel")
+    @JsonView(View.ListeDemandesEmprunt.class)
     Materiel materiel;
 
     @ManyToOne
     @JoinColumn(name="id_utilisateur")
+    @JsonView(View.ListeDemandesEmprunt.class)
     private Utilisateur utilisateur;
 
     @ManyToOne
     @JoinColumn(name="id_cadre")
     private CadreUtilisation cadreUtilisation;
-
 
     public Integer getIdEmprunt() {
         return idEmprunt;
@@ -60,35 +79,99 @@ public class Emprunt {
         this.idEmprunt = idEmprunt;
     }
 
-    public Date getDateDemande() {
-        return dateDemande;
+    public LocalDateTime getDateDemande() {
+        return dateDemandeEmprunt;
     }
 
-    public void setDateDemande(Date dateDemande) {
-        this.dateDemande = dateDemande;
+    public void setDateDemande(LocalDateTime dateDemande) {
+        this.dateDemandeEmprunt = dateDemande;
     }
 
-    public Date getDateEmprunt() {
+    public LocalDateTime getDateEmprunt() {
         return dateEmprunt;
     }
 
-    public void setDateEmprunt(Date dateEmprunt) {
+    public void setDateEmprunt(LocalDateTime dateEmprunt) {
         this.dateEmprunt = dateEmprunt;
     }
 
-    public Date getDateRetour() {
+    public LocalDateTime getDateRetour() {
         return dateRetour;
     }
 
-    public void setDateRetour(Date dateRetour) {
+    public void setDateRetour(LocalDateTime dateRetour) {
         this.dateRetour = dateRetour;
     }
 
-    public Date getDateValidation() {
-        return dateValidation;
+    public Materiel getMateriel() {
+        return materiel;
     }
 
-    public void setDateValidation(Date dateValidation) {
-        this.dateValidation = dateValidation;
+    public void setMateriel(Materiel materiel) {
+        this.materiel = materiel;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public LocalDateTime getDateProlongation() {
+        return dateProlongation;
+    }
+
+    public void setDateProlongation(LocalDateTime dateProlongation) {
+        this.dateProlongation = dateProlongation;
+    }
+
+    public LocalDateTime getdateDemandeRetour() {
+        return dateDemandeRetour;
+    }
+
+    public void setdateDemandeRetour(LocalDateTime demandeRetour) {
+        this.dateDemandeRetour = demandeRetour;
+    }
+
+    public CadreUtilisation getCadreUtilisation() {
+        return cadreUtilisation;
+    }
+
+    public void setCadreUtilisation(CadreUtilisation cadreUtilisation) {
+        this.cadreUtilisation = cadreUtilisation;
+    }
+
+    public LocalDateTime getDateValidationEmprunt() {
+        return dateValidationEmprunt;
+    }
+
+    public void setDateValidationEmprunt(LocalDateTime dateValidationEmprunt) {
+        this.dateValidationEmprunt = dateValidationEmprunt;
+    }
+
+    public LocalDateTime getDateValidationRetour() {
+        return dateValidationRetour;
+    }
+
+    public void setDateValidationRetour(LocalDateTime dateValidationRetour) {
+        this.dateValidationRetour = dateValidationRetour;
+    }
+
+    public LocalDateTime getDateValidationProlongation() {
+        return dateValidationProlongation;
+    }
+
+    public void setDateValidationProlongation(LocalDateTime dateValidationProlongation) {
+        this.dateValidationProlongation = dateValidationProlongation;
+    }
+
+    public Gestionnaire getValidationProlongation() {
+        return validationProlongation;
+    }
+
+    public void setValidationProlongation(Gestionnaire validationProlongation) {
+        this.validationProlongation = validationProlongation;
     }
 }

@@ -31,8 +31,8 @@ public class Gestionnaire extends Personne{
 
 
     public Gestionnaire() {
-
     }
+
     public Gestionnaire(Integer id, String nom, String prenom, String mail) {
         super(id, nom, prenom, mail);
     }
@@ -77,5 +77,51 @@ public class Gestionnaire extends Personne{
         this.motDePasse = motDePasse;
     }
 
+    public Personne getPersonne() {
+        return personne;
+    }
 
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
+    }
+
+    public List<Retard> getListeRetard() {
+        return listeRetard;
+    }
+
+    public void setListeRetard(List<Retard> listeRetard) {
+        this.listeRetard = listeRetard;
+    }
+
+    public List<Dysfonctionnement> getListeDysfonctionnements() {
+        return listeDysfonctionnements;
+    }
+
+    public void setListeDysfonctionnements(List<Dysfonctionnement> listeDysfonctionnements) {
+        this.listeDysfonctionnements = listeDysfonctionnements;
+    }
+
+    public List<Emprunt> getListeEmpruntsEntree() {
+        return listeEmpruntsEntree;
+    }
+
+    public void setListeEmpruntsEntree(List<Emprunt> listeEmpruntsEntree) {
+        this.listeEmpruntsEntree = listeEmpruntsEntree;
+    }
+
+    public List<Emprunt> getListeEmpruntsRetour() {
+        return listeEmpruntsRetour;
+    }
+
+    public void setListeEmpruntsRetour(List<Emprunt> listeEmpruntsRetour) {
+        this.listeEmpruntsRetour = listeEmpruntsRetour;
+    }
+
+    public List<Emprunt> getListeEmpruntsProlongation() {
+        return listeEmpruntsProlongation;
+    }
+
+    public void setListeEmpruntsProlongation(List<Emprunt> listeEmpruntsProlongation) {
+        this.listeEmpruntsProlongation = listeEmpruntsProlongation;
+    }
 }

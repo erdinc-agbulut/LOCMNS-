@@ -17,7 +17,7 @@ public class Modele {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idModele;
 
-    @JsonView(View.ListeDemandesEmprunt.class)
+    @JsonView({View.ListeDemandesEmprunt.class, View.listeHistoriqueMateriels.class})
     private String nomModele;
 
     @ManyToMany
@@ -34,7 +34,7 @@ public class Modele {
 
     @ManyToOne
     @JoinColumn(name="id_type")
-    @JsonView(View.ListeDemandesEmprunt.class)
+    @JsonView({View.ListeDemandesEmprunt.class, View.listeHistoriqueMateriels.class})
     private TypeMateriel typeMateriel;
 
     @OneToMany(mappedBy = "modele")

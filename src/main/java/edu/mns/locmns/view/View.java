@@ -9,4 +9,8 @@ public class View {
     public class ListeDemandesEmprunt{}
 
     public class ListeMaterielsNumeroSerie{}
+
+    public class listeHistoriqueMateriels{}
+
+    public class listeNumerosSerieModification{}
 }

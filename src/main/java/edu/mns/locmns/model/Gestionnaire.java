@@ -20,16 +20,6 @@ public class Gestionnaire extends Personne{
     @OneToMany(mappedBy = "gestionnaire")
     private List<Dysfonctionnement> listeDysfonctionnements = new ArrayList<>();
 
-    @OneToMany(mappedBy = "validationEntree")
-    private List<Emprunt> listeEmpruntsEntree = new ArrayList<>();
-
-    @OneToMany(mappedBy = "validationRetour")
-    private List<Emprunt> listeEmpruntsRetour = new ArrayList<>();
-
-    @OneToMany(mappedBy = "validationProlongation")
-    private List<Emprunt> listeEmpruntsProlongation = new ArrayList<>();
-
-
     public Gestionnaire() {
     }
 
@@ -101,27 +91,4 @@ public class Gestionnaire extends Personne{
         this.listeDysfonctionnements = listeDysfonctionnements;
     }
 
-    public List<Emprunt> getListeEmpruntsEntree() {
-        return listeEmpruntsEntree;
-    }
-
-    public void setListeEmpruntsEntree(List<Emprunt> listeEmpruntsEntree) {
-        this.listeEmpruntsEntree = listeEmpruntsEntree;
-    }
-
-    public List<Emprunt> getListeEmpruntsRetour() {
-        return listeEmpruntsRetour;
-    }
-
-    public void setListeEmpruntsRetour(List<Emprunt> listeEmpruntsRetour) {
-        this.listeEmpruntsRetour = listeEmpruntsRetour;
-    }
-
-    public List<Emprunt> getListeEmpruntsProlongation() {
-        return listeEmpruntsProlongation;
-    }
-
-    public void setListeEmpruntsProlongation(List<Emprunt> listeEmpruntsProlongation) {
-        this.listeEmpruntsProlongation = listeEmpruntsProlongation;
-    }
 }

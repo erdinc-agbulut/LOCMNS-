@@ -19,6 +19,7 @@ public class MaterielController {
     public MaterielController(MaterielDao materielDao) { this.materielDao = materielDao;}
 
     @GetMapping("/gestionnaire/liste-materiels")
+    @JsonView(View.listeNumerosSerieModification.class)
     public List<Materiel> listeMateriels(){
 
         return this.materielDao.findAll();

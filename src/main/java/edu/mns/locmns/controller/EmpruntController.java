@@ -5,6 +5,7 @@ import edu.mns.locmns.dao.EmpruntDao;
 import edu.mns.locmns.dao.MaterielDao;
 import edu.mns.locmns.dao.UtilisateurDao;
 import edu.mns.locmns.model.Emprunt;
+import edu.mns.locmns.model.Materiel;
 import edu.mns.locmns.view.View;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -195,6 +196,29 @@ public class EmpruntController {
         emprunt.setDateProlongation(null); //Met la date de demande retour à null la demande est supprimée
         empruntDao.save(emprunt);
         return "La demande de prolongation a bien été supprimée";
+    }
+
+    @GetMapping("gestionnaire/historique-materiels")
+    @JsonView(View.listeHistoriqueMateriels.class)
+    public List listeHistoriqueMateriels(){
+        return this.empruntDao.findAllByDateValidationRetourIsNotNull();
+    }
+
+    @PostMapping("gestionnaire/demande-reservation")
+    public String enregistrerReservation(@RequestBody Emprunt emprunt){
+        emprunt.setDateValidationEmprunt(LocalDateTime.now()); //Validation automatique de la demande de réservation faite par le gestionnaire
+        this.empruntDao.save(emprunt);
+        return "La demande de réservation est enregistrée";
+    }
+
+    @PutMapping("gestionnaire/modification-demande-emprunt")
+    public String ModificationNumeroSerieDemandeEmprunt(@RequestBody Emprunt emprunt){
+        Materiel materiel = new Materiel();
+        materiel.setIdMateriel(emprunt.getMateriel().getIdMateriel());
+        emprunt = this.empruntDao.findById(emprunt.getIdEmprunt()).orElse(null);
+        emprunt.setMateriel(materiel);
+        this.empruntDao.save(emprunt);
+        return "La modification du numéro de série est bien effectuée";
     }
 
 }

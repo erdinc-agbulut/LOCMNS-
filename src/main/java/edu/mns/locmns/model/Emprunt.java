@@ -19,14 +19,14 @@ public class Emprunt {
     private Integer idEmprunt;
 
     @JsonView(View.ListeDemandesEmprunt.class)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateDemandeEmprunt;
 
-    @JsonView({View.ListeDemandesEmprunt.class,View.listeHistoriqueMateriels.class})
+    @JsonView({View.ListeDemandesEmprunt.class, View.listeHistoriqueMateriels.class})
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateEmprunt;
 
-    @JsonView({View.ListeDemandesEmprunt.class,View.listeHistoriqueMateriels.class})
+
+    @JsonView({View.ListeDemandesEmprunt.class, View.listeHistoriqueMateriels.class})
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateRetour;
 
@@ -41,6 +41,7 @@ public class Emprunt {
     private LocalDateTime dateValidationProlongation;
 
     @JsonView(View.ListeDemandesEmprunt.class)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateDemandeRetour;
 
 
@@ -51,7 +52,7 @@ public class Emprunt {
     @ManyToOne
     @JoinColumn(name="id_materiel")
     @JsonView({View.ListeDemandesEmprunt.class, View.listeHistoriqueMateriels.class})
-    Materiel materiel;
+    private Materiel materiel;
 
     @ManyToOne
     @JoinColumn(name="id_utilisateur")
@@ -70,12 +71,12 @@ public class Emprunt {
         this.idEmprunt = idEmprunt;
     }
 
-    public LocalDateTime getDateDemande() {
+    public LocalDateTime getDateDemandeEmprunt() {
         return dateDemandeEmprunt;
     }
 
-    public void setDateDemande(LocalDateTime dateDemande) {
-        this.dateDemandeEmprunt = dateDemande;
+    public void setDateDemandeEmprunt(LocalDateTime dateDemandeEmprunt) {
+        this.dateDemandeEmprunt = dateDemandeEmprunt;
     }
 
     public LocalDateTime getDateEmprunt() {
@@ -158,12 +159,13 @@ public class Emprunt {
         this.dateValidationProlongation = dateValidationProlongation;
     }
 
-    public LocalDateTime getDateDemandeEmprunt() {
-        return dateDemandeEmprunt;
+    public Gestionnaire getGestionnaire() {
+        return gestionnaire;
     }
 
-    public void setDateDemandeEmprunt(LocalDateTime dateDemandeEmprunt) {
-        this.dateDemandeEmprunt = dateDemandeEmprunt;
+    public void setGestionnaire(Gestionnaire gestionnaire) {
+        this.gestionnaire = gestionnaire;
     }
+
 
 }
